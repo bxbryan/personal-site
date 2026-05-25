@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>scense — Bryan Xu</title>
+    <meta name="description" content="scense — a brand identity project for a fictional social club centered on olfactory experience.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+
+    <div class="accent-circle" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a href="index.html" class="brand">Bryan Xu</a>
+      <nav aria-label="Primary navigation">
+        <a href="works.html">Works</a>
+        <a href="about.html">About</a>
+        <a href="assets/cv/Bryan-Xu-Resume-260428-ATS.pdf" target="_blank" rel="noopener">CV</a>
+      </nav>
+    </header>
+
+    <main class="page-wrap">
+      <div class="five-col">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <h1 class="sidebar-title">scense</h1>
+          <div class="sidebar-meta">
+            <span>Feb–Mar 2026</span>
+            <span>4 weeks</span>
+            <span>Brand Identity</span>
+            <span>Designer</span>
+            <strong>Tools</strong>
+            <span>Figma, Adobe Photoshop</span>
+          </div>
+          <p class="sidebar-desc">A brand identity project for a fictional social club centered on olfactory experience.</p>
+          <a href="works.html" class="back-link">← Back to Works</a>
+        </aside>
+
+        <!-- Main content -->
+        <div class="col-main">
+          <div class="intro-copy" data-reveal>
+            <p>Created for my Hybrid Visual Identities class, the project responds to a brief to develop an immaterial brand.</p>
+            <p>My partner Ajin Jeong and I positioned scense as a cultural and social brand rather than simply a perfume club: a speculative community built around scent-based experiences for people interested in fragrance, self-expression, and offline closeness as a more intentional form of social connection.</p>
+          </div>
+
+          <div class="image-stack" data-reveal>
+            <img src="assets/scense/image-95.png" alt="scense brand system">
+            <img src="assets/scense/image-96.png" alt="scense visual identity">
+            <img src="assets/scense/image-97.png" alt="scense design elements">
+            <img src="assets/scense/image-98.png" alt="scense application">
+            <img src="assets/scense/image-99.png" alt="scense logo system">
+            <img src="assets/scense/image-100.png" alt="scense collateral">
+            <img src="assets/scense/touchpoints-1.png" alt="scense touchpoints">
+            <img src="assets/scense/touchpoints-2.png" alt="scense touchpoints">
+            <img src="assets/scense/touchpoints-3.png" alt="scense touchpoints">
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <script>
+      const circle = document.querySelector(".accent-circle");
+      let cx = window.innerWidth * 0.72, cy = window.innerHeight * 0.18;
+      let tx = cx, ty = cy;
+      window.addEventListener("mousemove", e => { tx = e.clientX; ty = e.clientY; }, { passive: true });
+      (function tick() {
+        cx += (tx - cx) * 0.032;
+        cy += (ty - cy) * 0.032;
+        if (circle) circle.style.transform = `translate(${cx.toFixed(1)}px,${cy.toFixed(1)}px)`;
+        requestAnimationFrame(tick);
+      })();
+      const observer = new IntersectionObserver(
+        entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("is-visible"); observer.unobserve(e.target); } }),
+        { threshold: 0.08 }
+      );
+      document.querySelectorAll("[data-reveal]").forEach(el => observer.observe(el));
+      document.body.classList.add("is-loaded");
+    </script>
+  </body>
+</html>

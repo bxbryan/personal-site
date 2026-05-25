@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Works — Bryan Xu</title>
+    <meta name="description" content="Selected work by Bryan Xu — scense, Liminal Objects, Ombro.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+
+    <div class="accent-circle" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a href="index.html" class="brand">Bryan Xu</a>
+      <nav aria-label="Primary navigation">
+        <a href="works.html">Works</a>
+        <a href="about.html">About</a>
+        <a href="assets/cv/Bryan-Xu-Resume-260428-ATS.pdf" target="_blank" rel="noopener">CV</a>
+      </nav>
+    </header>
+
+    <main class="page-wrap">
+      <div class="five-col">
+
+        <!-- Sidebar -->
+        <aside class="works-header">
+          <h1 class="works-title">Works</h1>
+          <p class="works-subtitle">Collection of selected past projects</p>
+        </aside>
+
+        <!-- Project list -->
+        <div class="project-list" role="list">
+
+          <!-- scense -->
+          <a class="project-card" href="scense.html" role="listitem" data-reveal>
+            <img class="project-card-thumb" src="assets/scense-cover.png" alt="scense brand identity">
+            <div class="project-card-cover">
+              <span class="project-card-name">scense</span>
+            </div>
+          </a>
+
+          <!-- Liminal Objects -->
+          <a class="project-card" href="liminal-objects.html" role="listitem" data-reveal>
+            <img class="project-card-thumb" src="assets/limobj-cover.png" alt="Liminal Objects">
+            <div class="project-card-cover">
+              <span class="project-card-name">Liminal Objects</span>
+            </div>
+          </a>
+
+          <!-- Ombro -->
+          <a class="project-card" href="ombro.html" role="listitem" data-reveal>
+            <img class="project-card-thumb" src="assets/ombro-cover.png" alt="Ombro umbrella design">
+            <div class="project-card-cover">
+              <span class="project-card-name">Ombro</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </main>
+
+    <script>
+      // Accent circle tracking
+      const circle = document.querySelector(".accent-circle");
+      let cx = window.innerWidth * 0.72, cy = window.innerHeight * 0.18;
+      let tx = cx, ty = cy;
+      window.addEventListener("mousemove", e => { tx = e.clientX; ty = e.clientY; }, { passive: true });
+      (function tick() {
+        cx += (tx - cx) * 0.032;
+        cy += (ty - cy) * 0.032;
+        if (circle) circle.style.transform = `translate(${cx.toFixed(1)}px,${cy.toFixed(1)}px)`;
+        requestAnimationFrame(tick);
+      })();
+
+      // Reveal
+      const observer = new IntersectionObserver(
+        entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("is-visible"); observer.unobserve(e.target); } }),
+        { threshold: 0.1 }
+      );
+      document.querySelectorAll("[data-reveal]").forEach(el => observer.observe(el));
+      document.body.classList.add("is-loaded");
+    </script>
+  </body>
+</html>

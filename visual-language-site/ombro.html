@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ombro — Bryan Xu</title>
+    <meta name="description" content="Ombro — a reimagining of the conventional umbrella through ergonomic research and coverage-driven design.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+
+    <div class="accent-circle" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a href="index.html" class="brand">Bryan Xu</a>
+      <nav aria-label="Primary navigation">
+        <a href="works.html">Works</a>
+        <a href="about.html">About</a>
+        <a href="assets/cv/Bryan-Xu-Resume-260428-ATS.pdf" target="_blank" rel="noopener">CV</a>
+      </nav>
+    </header>
+
+    <main class="page-wrap">
+      <div class="five-col">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <h1 class="sidebar-title">Ombro<br><span style="font-size:0.5em; color:var(--text-secondary);">WIP</span></h1>
+          <div class="sidebar-meta">
+            <span>Jun–Aug 2025 (Unfinished)</span>
+            <span>Research-based product designer</span>
+            <strong>Tools</strong>
+            <span>Rhino</span>
+          </div>
+          <p class="sidebar-desc">A reimagining of the conventional umbrella through ergonomic research and coverage-driven design, reframing it as a more intentional everyday object.</p>
+          <a href="works.html" class="back-link">← Back to Works</a>
+        </aside>
+
+        <!-- Main content -->
+        <div class="col-main">
+          <div class="intro-copy" data-reveal>
+            <p>Personal project started in the summer of 2025, still a work in progress.</p>
+          </div>
+
+          <div class="image-stack" data-reveal>
+            <img src="assets/ombro/umbrella-iteration-1.png" alt="Ombro — umbrella iteration 1">
+            <img src="assets/ombro/umbrella-iteration-2.png" alt="Ombro — umbrella iteration 2">
+            <img src="assets/ombro/umbrella-iteration-3.png" alt="Ombro — umbrella iteration 3">
+            <img src="assets/ombro/existing-solutions.png" alt="Ombro — existing solutions research">
+            <img src="assets/ombro/iterations-0.png" alt="Ombro — form iterations">
+            <img src="assets/ombro/iterations-1.png" alt="Ombro — form iterations">
+            <img src="assets/ombro/iterations-2.png" alt="Ombro — form iterations">
+            <img src="assets/ombro/iterations-3.png" alt="Ombro — form iterations">
+            <img src="assets/ombro/iterations-4.png" alt="Ombro — form iterations">
+            <img src="assets/ombro/iterations-5.png" alt="Ombro — form iterations">
+            <img src="assets/ombro/iterations-6.png" alt="Ombro — form iterations">
+            <img src="assets/ombro/iterations-7.png" alt="Ombro — form iterations">
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <script>
+      const circle = document.querySelector(".accent-circle");
+      let cx = window.innerWidth * 0.72, cy = window.innerHeight * 0.18;
+      let tx = cx, ty = cy;
+      window.addEventListener("mousemove", e => { tx = e.clientX; ty = e.clientY; }, { passive: true });
+      (function tick() {
+        cx += (tx - cx) * 0.032;
+        cy += (ty - cy) * 0.032;
+        if (circle) circle.style.transform = `translate(${cx.toFixed(1)}px,${cy.toFixed(1)}px)`;
+        requestAnimationFrame(tick);
+      })();
+      const observer = new IntersectionObserver(
+        entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("is-visible"); observer.unobserve(e.target); } }),
+        { threshold: 0.08 }
+      );
+      document.querySelectorAll("[data-reveal]").forEach(el => observer.observe(el));
+      document.body.classList.add("is-loaded");
+    </script>
+  </body>
+</html>

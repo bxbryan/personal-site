@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About — Bryan Xu</title>
+    <meta name="description" content="About Bryan Xu — designer working across objects, brands, and sensory experiences.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+
+    <div class="accent-circle" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a href="index.html" class="brand">Bryan Xu</a>
+      <nav aria-label="Primary navigation">
+        <a href="works.html">Works</a>
+        <a href="about.html">About</a>
+        <a href="assets/cv/Bryan-Xu-Resume-260428-ATS.pdf" target="_blank" rel="noopener">CV</a>
+      </nav>
+    </header>
+
+    <main class="page-wrap">
+      <div class="five-col">
+
+        <!-- Photo -->
+        <div class="about-photo" data-reveal>
+          <img src="assets/about/about-photo-bryan.png" alt="Bryan Xu">
+        </div>
+
+        <!-- Copy -->
+        <div class="about-copy">
+          <h1 data-reveal>About me</h1>
+
+          <h2 data-reveal>About My Background</h2>
+
+          <div data-reveal>
+            <p>I think I've been design-minded for a long time, even before I knew what design really was. As a kid, I was obsessed with cars, then shoes, and eventually objects in general. What drew me in was not just how they worked, but how they looked and felt — the stance of a car, the silhouette of a shoe, or how Apple made all of its products feel visually consistent.</p>
+
+            <p>At the same time, I was never really the typical "art kid." I've always been analytical. In grade 7, we had to design a flag for an imaginary country, and I built mine by connecting points based on thirds in a square. My teacher pointed out how analytical my process was, and that stayed with me.</p>
+
+            <p>For a long time, I felt like I was in this middle ground between engineering and design. My dad encouraged me toward STEM, and because I was good at physics, engineering felt like a reasonable compromise. I was inspired by people like James Dyson — someone who seemed to bridge technical thinking and design instead of choosing only one.</p>
+
+            <p>But in college, I started realizing that what really drives me is the human side of things: emotion, taste, story, and how ideas connect with people. That pulled me toward branding and experience. Through X Academy, I saw how powerful narrative and public communication can be in moving people and making something feel meaningful.</p>
+
+            <p>More recently, I've noticed that even in small ways, like posting Instagram stories with my thoughts, I really enjoy sparking emotional responses and conversations. When people reply genuinely, compliment the way I think, or start a real conversation from something I shared, it gives me a lot of energy. It made me realize that I may be drawn not only to making things, but to shaping the ideas, stories, and experiences around them.</p>
+
+            <p>So now, I don't see myself as only a product designer. I'm interested in the space between design, storytelling, brand, and creative strategy — turning ideas into experiences people can feel, remember, and care about.</p>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <script>
+      const circle = document.querySelector(".accent-circle");
+      let cx = window.innerWidth * 0.72, cy = window.innerHeight * 0.18;
+      let tx = cx, ty = cy;
+      window.addEventListener("mousemove", e => { tx = e.clientX; ty = e.clientY; }, { passive: true });
+      (function tick() {
+        cx += (tx - cx) * 0.032;
+        cy += (ty - cy) * 0.032;
+        if (circle) circle.style.transform = `translate(${cx.toFixed(1)}px,${cy.toFixed(1)}px)`;
+        requestAnimationFrame(tick);
+      })();
+      const observer = new IntersectionObserver(
+        entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("is-visible"); observer.unobserve(e.target); } }),
+        { threshold: 0.08 }
+      );
+      document.querySelectorAll("[data-reveal]").forEach(el => observer.observe(el));
+      document.body.classList.add("is-loaded");
+    </script>
+  </body>
+</html>
