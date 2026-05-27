@@ -890,7 +890,7 @@ body.gallery-open {
   justify-self: start;
   width: 75%;
   overflow: hidden;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 3 / 2;
   background: transparent;
 }
 
