@@ -35,30 +35,42 @@
           <!-- scense -->
           <a class="project-card" href="scense.html" role="listitem" data-reveal>
             <img class="project-card-thumb" src="assets/scense-cover.png" alt="scense brand identity">
-            <div class="project-card-cover">
-              <span class="project-card-name">scense</span>
-            </div>
+            <div class="project-card-cover"></div>
+            <span class="project-card-name">scense</span>
           </a>
 
           <!-- Liminal Objects -->
           <a class="project-card" href="liminal-objects.html" role="listitem" data-reveal>
             <img class="project-card-thumb" src="assets/limobj-cover.png" alt="Liminal Objects">
-            <div class="project-card-cover">
-              <span class="project-card-name">Liminal Objects</span>
-            </div>
+            <div class="project-card-cover"></div>
+            <span class="project-card-name">Liminal Objects</span>
           </a>
 
           <!-- Ombro -->
           <a class="project-card" href="ombro.html" role="listitem" data-reveal>
             <img class="project-card-thumb" src="assets/ombro-cover.png" alt="Ombro umbrella design">
-            <div class="project-card-cover">
-              <span class="project-card-name">Ombro</span>
-            </div>
+            <div class="project-card-cover"></div>
+            <span class="project-card-name">Ombro</span>
           </a>
 
         </div>
       </div>
     </main>
+
+    <footer class="site-footer">
+      <div class="five-col">
+        <div class="footer-identity">
+          <span>许培峰</span>
+          <span>&copy; 2026 Bryan Xu</span>
+        </div>
+        <div class="footer-links" aria-label="Social links">
+          <a href="https://www.instagram.com/_bxbryan/" target="_blank" rel="noopener">&searr; Instagram</a>
+          <a href="https://x.com/BxBryanx" target="_blank" rel="noopener">&searr; X</a>
+          <a href="https://www.linkedin.com/in/bryan-xu-a65881256/" target="_blank" rel="noopener">&searr; Linkedin</a>
+          <a href="mailto:bxbry4n@gmail.com">&searr; Email</a>
+        </div>
+      </div>
+    </footer>
 
     <script>
       // Accent circle tracking
@@ -75,8 +87,10 @@
 
       // Reveal
       const observer = new IntersectionObserver(
-        entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("is-visible"); observer.unobserve(e.target); } }),
-        { threshold: 0.1 }
+        entries => entries.forEach(e => {
+          if (e.isIntersecting) { e.target.classList.add("is-visible"); observer.unobserve(e.target); }
+        }),
+        { threshold: 0.08 }
       );
       document.querySelectorAll("[data-reveal]").forEach(el => observer.observe(el));
       document.body.classList.add("is-loaded");
