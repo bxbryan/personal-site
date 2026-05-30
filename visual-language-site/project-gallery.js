@@ -3,6 +3,24 @@
   if (images.length === 0) return;
 
   const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+  const projectMain = document.querySelector(".project-page .col-main");
+  const introCopy = document.querySelector(".project-page .intro-copy");
+
+  function syncProjectIntroWidth() {
+    if (!projectMain || !introCopy || !images[0]) return;
+    const width = images[0].getBoundingClientRect().width;
+    if (width > 0) projectMain.style.setProperty("--project-media-width", `${width.toFixed(2)}px`);
+  }
+
+  if (projectMain && introCopy) {
+    const scheduleIntroSync = () => requestAnimationFrame(syncProjectIntroWidth);
+    window.addEventListener("resize", scheduleIntroSync, { passive: true });
+    images[0].addEventListener("load", scheduleIntroSync);
+    if (images[0].complete) scheduleIntroSync();
+    if ("ResizeObserver" in window) {
+      new ResizeObserver(scheduleIntroSync).observe(images[0]);
+    }
+  }
 
   const lightbox = document.createElement("div");
   lightbox.className = "gallery-lightbox";

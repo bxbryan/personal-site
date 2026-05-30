@@ -24,11 +24,6 @@ const fontPool = [
     styles: ["normal", "italic"],
     weights: ["100", "200", "300", "400"],
   },
-  {
-    family: '"Diatype SemiMono", "ABC Diatype SemiMono", "SFMono-Regular", Consolas, monospace',
-    styles: ["normal", "italic"],
-    weights: ["100", "200", "300", "400"],
-  },
 ];
 
 const CYCLE_COUNT = 28;
@@ -121,7 +116,7 @@ function updateHero(p) {
     el.style.fontStyle  = style.style;
     el.style.fontWeight = style.weight;
   });
-  heroName.dataset.fontKind = style.family.includes("SemiMono") ? "semimono" : "diatype";
+  heroName.dataset.fontKind = "diatype";
 
   // Fly-in positioning
   const vw      = window.innerWidth;
@@ -182,16 +177,18 @@ function updateHero(p) {
 const MOVEMENT_DURATION = 0.88;
 const MOVEMENT_TRAVEL_RATIO = 0.72;
 const MOVEMENT_TRAVEL_EXTRA = 260;
+const MOVEMENT_REVEAL_POWER = 1.75;
 
 function updateMovement(p) {
   const movementP = clamp(p / MOVEMENT_DURATION, 0, 1);
   const eased  = easeOut3(movementP);
+  const revealP = easeIn(movementP, MOVEMENT_REVEAL_POWER);
   const travel = window.innerWidth * MOVEMENT_TRAVEL_RATIO + MOVEMENT_TRAVEL_EXTRA;
   const rightGroupDrop = window.innerWidth > 860 ? clamp(window.innerHeight * 0.18, 130, 230) : 0;
 
   function updateGroup(lines, dir) {
     const offset = dir * (1 - eased) * travel;
-    const sweep  = movementP * lines.length;
+    const sweep  = revealP * lines.length;
     lines.forEach((line, i) => {
       const local  = clamp(sweep - i, 0, 1);
       const hidden = (100 - local * 100).toFixed(2);
@@ -213,7 +210,7 @@ function updateMovement(p) {
 // ─── Accent blob — slow mouse tracking ───────────────────────────────────────
 let blobX = window.innerWidth * 0.72, blobY = window.innerHeight * 0.18;
 let targetX = blobX, targetY = blobY;
-const LERP = 0.032;
+const LERP = 0.12;
 const LENS_RADIUS = 105;
 const LENS_TRIGGER_PAD = 4;
 // Magnifier strength lives here: raise both scale values to make the old-glass lens stronger.

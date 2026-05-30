@@ -20,7 +20,7 @@
       </nav>
     </header>
 
-    <main class="page-wrap">
+    <main class="page-wrap project-page">
       <div class="five-col">
 
         <!-- Sidebar -->
@@ -82,8 +82,8 @@
       let tx = cx, ty = cy;
       window.addEventListener("mousemove", e => { tx = e.clientX; ty = e.clientY; }, { passive: true });
       (function tick() {
-        cx += (tx - cx) * 0.032;
-        cy += (ty - cy) * 0.032;
+        cx += (tx - cx) * 0.06;
+        cy += (ty - cy) * 0.06;
         if (circle) circle.style.transform = `translate(${cx.toFixed(1)}px,${cy.toFixed(1)}px)`;
         requestAnimationFrame(tick);
       })();

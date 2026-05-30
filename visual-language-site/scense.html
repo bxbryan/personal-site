@@ -20,7 +20,7 @@
       </nav>
     </header>
 
-    <main class="page-wrap">
+    <main class="page-wrap project-page">
       <div class="five-col">
 
         <!-- Sidebar -->
@@ -46,15 +46,21 @@
           </div>
 
           <div class="image-stack" data-reveal>
-            <img src="assets/scense/image-95.png" alt="scense brand system">
-            <img src="assets/scense/image-96.png" alt="scense visual identity">
-            <img src="assets/scense/image-97.png" alt="scense design elements">
-            <img src="assets/scense/image-98.png" alt="scense application">
-            <img src="assets/scense/image-99.png" alt="scense logo system">
-            <img src="assets/scense/image-100.png" alt="scense collateral">
-            <img src="assets/scense/touchpoints-1.png" alt="scense touchpoints">
-            <img src="assets/scense/touchpoints-2.png" alt="scense touchpoints">
-            <img src="assets/scense/touchpoints-3.png" alt="scense touchpoints">
+            <img src="assets/scense/1.png" alt="scense brand values">
+            <img src="assets/scense/2.png" alt="scense social post concepts">
+            <img src="assets/scense/3.png" alt="scense interface mockups">
+            <img src="assets/scense/4.png" alt="scense bottle application">
+            <img src="assets/scense/5.png" alt="scense event poster">
+            <img src="assets/scense/6.png" alt="scense sidewalk sign applications">
+            <img src="assets/scense/7.png" alt="scense glass sign application">
+            <img src="assets/scense/8.png" alt="scense city guide book">
+            <img src="assets/scense/9.png" alt="scense tote bag application">
+            <img src="assets/scense/10.png" alt="scense touchpoints and ecosystem">
+            <img src="assets/scense/11.png" alt="scense typography system">
+            <img src="assets/scense/12.png" alt="scense graphic motif">
+            <img src="assets/scense/13.png" alt="scense logo system">
+            <img src="assets/scense/14.png" alt="scense color palette iteration">
+            <img src="assets/scense/15.png" alt="scense logo mark iteration">
           </div>
         </div>
 
@@ -82,8 +88,8 @@
       let tx = cx, ty = cy;
       window.addEventListener("mousemove", e => { tx = e.clientX; ty = e.clientY; }, { passive: true });
       (function tick() {
-        cx += (tx - cx) * 0.032;
-        cy += (ty - cy) * 0.032;
+        cx += (tx - cx) * 0.06;
+        cy += (ty - cy) * 0.06;
         if (circle) circle.style.transform = `translate(${cx.toFixed(1)}px,${cy.toFixed(1)}px)`;
         requestAnimationFrame(tick);
       })();
