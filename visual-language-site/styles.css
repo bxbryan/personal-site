@@ -775,26 +775,24 @@ body.gallery-open {
 
 .works-page .project-card {
   aspect-ratio: 3 / 2;
-  width: 100%;
+  width: min(100%, 620px);
 }
 
 .works-page .project-card:nth-child(1) {
   grid-column: 1;
   justify-self: start;
-  width: 76%;
   margin-top: clamp(80px, 10vw, 180px);
 }
 
 .works-page .project-card:nth-child(2) {
   grid-column: 2;
   justify-self: end;
-  width: 82%;
 }
 
 .works-page .project-card:nth-child(3) {
   grid-column: 1;
-  justify-self: center;
-  width: 88%;
+  justify-self: start;
+  transform: translateX(clamp(0px, 5vw, 100px));
   margin-top: clamp(20px, 5vw, 96px);
 }
 
@@ -1011,10 +1009,15 @@ body.gallery-open {
 
 .works-teaser-strip {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
   gap: clamp(34px, 5vw, 104px);
   width: 100%;
   max-width: none;
+  overflow-x: auto;
+  overflow-y: visible;
+  overscroll-behavior-x: contain;
+  padding-bottom: 6px;
+  scrollbar-width: thin;
 }
 
 /* Same card mechanics as works.html but smaller */
@@ -1022,7 +1025,8 @@ body.gallery-open {
   position: relative;
   display: block;
   justify-self: start;
-  width: 75%;
+  width: 100%;
+  min-width: 300px;
   overflow: hidden;
   aspect-ratio: 3 / 2;
   background: transparent;
@@ -1034,6 +1038,7 @@ body.gallery-open {
 
 .teaser-card:nth-child(3) {
   justify-self: end;
+  transform: translateX(clamp(0px, 5vw, 100px));
 }
 
 .teaser-card-thumb {
@@ -1196,6 +1201,7 @@ body.gallery-open {
   .works-page .project-card:nth-child(3) {
     width: 100%;
     margin-top: 0;
+    transform: none;
   }
 
   .works-teaser-strip {
@@ -1208,6 +1214,7 @@ body.gallery-open {
   .teaser-card:nth-child(3) {
     justify-self: stretch;
     width: 100%;
+    transform: none;
   }
 
   .footer-identity,
