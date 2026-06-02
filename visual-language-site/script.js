@@ -439,7 +439,14 @@ function schedule() {
 
 // ─── Lenis smooth scroll ─────────────────────────────────────────────────────
 if (window.Lenis) {
-  const lenis = new window.Lenis({ lerp: 0.08, smoothWheel: true, syncTouch: true, touchMultiplier: 1.08 });
+  const lenis = new window.Lenis({
+    lerp: 0.11,
+    smoothWheel: true,
+    syncTouch: false,
+    gestureOrientation: "vertical",
+    touchMultiplier: 1.08,
+    wheelMultiplier: 1.08,
+  });
   lenis.on("scroll", schedule);
   if (window.gsap) {
     window.gsap.ticker.add(t => lenis.raf(t * 1000));
