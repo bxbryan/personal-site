@@ -27,7 +27,6 @@
 html {
   background: var(--bg);
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 body {
@@ -39,7 +38,6 @@ body {
   line-height: 1.4;
   letter-spacing: -0.02em;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, p, dl, dd, dt, figure { margin: 0; }
