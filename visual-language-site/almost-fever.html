@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Works — Bryan Xu</title>
-    <meta name="description" content="Selected work by Bryan Xu — Almost Fever, scense, Liminal Objects, Ombro.">
+    <title>Almost Fever — Bryan Xu</title>
+    <meta name="description" content="Almost Fever — a reimagination of a video campaign with original audio design and edited video.">
     <meta property="og:site_name" content="Bryan Xu">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Works — Bryan Xu">
-    <meta property="og:description" content="Selected work by Bryan Xu — Almost Fever, scense, Liminal Objects, Ombro.">
+    <meta property="og:title" content="Almost Fever — Bryan Xu">
+    <meta property="og:description" content="Almost Fever — a reimagination of a video campaign with original audio design and edited video.">
     <meta property="og:image" content="https://bxbryan.com/assets/site-thumbnail.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -32,47 +32,34 @@
       </nav>
     </header>
 
-    <main class="page-wrap works-page">
+    <main class="page-wrap project-page">
       <div class="five-col">
 
         <!-- Sidebar -->
-        <aside class="works-header">
-          <h1 class="works-title">Works</h1>
-          <p class="works-subtitle">Collection of selected past projects</p>
+        <aside class="sidebar">
+          <h1 class="sidebar-title">Almost Fever</h1>
+          <div class="sidebar-meta">
+            <span>Dec 2025</span>
+            <span>Audio Engineer/Video Editor</span>
+            <strong>Tools</strong>
+            <span>Reaper/CapCut</span>
+          </div>
+          <p class="sidebar-desc">A reimagination of a video campaign for Almost Fever, an architectural/sculptural perfumery brand based in China.</p>
+          <video class="sidebar-preview" src="assets/almost-fever/almost-fever.mp4" poster="assets/almost-fever/almost-fever-cover.png" muted autoplay playsinline loop preload="metadata" aria-label="Almost Fever preview"></video>
+          <a href="works.html" class="back-link">← Back to Works</a>
         </aside>
 
-        <!-- Project list -->
-        <div class="project-list" role="list">
+        <!-- Main content -->
+        <div class="col-main">
+          <div class="intro-copy" data-reveal>
+            <p>Created as an assignment for Audio Foundation Studio, this video combines two videos from Almost Fever's social media campaign and unites them with new, original audio design and carefully mixed background music selected to match the brand's experimental yet playful character.</p>
+          </div>
 
-          <!-- Almost Fever -->
-          <a class="project-card" href="almost-fever.html" role="listitem" data-reveal>
-            <img class="project-card-thumb" src="assets/almost-fever/almost-fever-cover.png" alt="Almost Fever video campaign">
-            <div class="project-card-cover"></div>
-            <span class="project-card-name">Almost Fever</span>
-          </a>
-
-          <!-- scense -->
-          <a class="project-card" href="scense.html" role="listitem" data-reveal>
-            <img class="project-card-thumb" src="assets/scense-cover.png" alt="scense brand identity">
-            <div class="project-card-cover"></div>
-            <span class="project-card-name">scense</span>
-          </a>
-
-          <!-- Liminal Objects -->
-          <a class="project-card" href="liminal-objects.html" role="listitem" data-reveal>
-            <img class="project-card-thumb" src="assets/limobj-cover.png" alt="Liminal Objects">
-            <div class="project-card-cover"></div>
-            <span class="project-card-name">Liminal Objects</span>
-          </a>
-
-          <!-- Ombro -->
-          <a class="project-card" href="ombro.html" role="listitem" data-reveal>
-            <img class="project-card-thumb" src="assets/ombro-cover.png" alt="Ombro umbrella design">
-            <div class="project-card-cover"></div>
-            <span class="project-card-name">Ombro</span>
-          </a>
-
+          <div class="video-stack" data-reveal>
+            <video class="project-video" src="assets/almost-fever/almost-fever.mp4" poster="assets/almost-fever/almost-fever-cover.png" controls playsinline preload="metadata" aria-label="Almost Fever campaign reimagination"></video>
+          </div>
         </div>
+
       </div>
     </main>
 
@@ -92,7 +79,6 @@
     </footer>
 
     <script>
-      // Accent circle tracking
       const circle = document.querySelector(".accent-circle");
       let cx = window.innerWidth * 0.72, cy = window.innerHeight * 0.18;
       let tx = cx, ty = cy;
@@ -103,12 +89,8 @@
         if (circle) circle.style.transform = `translate(${cx.toFixed(1)}px,${cy.toFixed(1)}px)`;
         requestAnimationFrame(tick);
       })();
-
-      // Reveal
       const observer = new IntersectionObserver(
-        entries => entries.forEach(e => {
-          if (e.isIntersecting) { e.target.classList.add("is-visible"); observer.unobserve(e.target); }
-        }),
+        entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("is-visible"); observer.unobserve(e.target); } }),
         { threshold: 0.08 }
       );
       document.querySelectorAll("[data-reveal]").forEach(el => observer.observe(el));
